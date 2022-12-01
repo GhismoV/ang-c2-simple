@@ -1,0 +1,36 @@
+<h3>servers works!</h3>
+
+<!-- esempio di EventBinding monodirezionale (dal campo input a typescript)... per il bidirezionale vedi successivo
+<input
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"
+>
+-->
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="this.newServerName"
+>
+
+<button
+  class="btn btn-primary"
+  [disabled]="!this.allowAddServer || this.newServerName === ''"
+  (click)="onAddServer()"
+>Add Server <b>{{newServerName}}</b></button>
+
+<h3>{{allowAddServer}}</h3>
+<h3 [innerText]="allowAddServer">{{ 'banana' }}</h3>
+
+<!-- chiamata via class -->
+<div class="app-server"></div>
+<div class="app-server"></div>
+
+<!-- chiamata via attributo
+<div app-server></div>
+<div app-server></div>
+-->
+<!-- chiamata via tag
+<app-server></app-server>
+<app-server></app-server>
+-->
