@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   //selector: 'app-server', // lo si richima via tag (element)
@@ -12,6 +12,9 @@ export class ServerComponent implements OnInit {
   static readonly ON : string = 'online'
   static readonly OFF : string = 'offline'
 
+
+  @Input() serverName: string
+  @Input() serverIdx: number
   serverId: number = 10
   serverStatus: string = ServerComponent.OFF
 
@@ -27,6 +30,7 @@ export class ServerComponent implements OnInit {
     this.serverStatus = (this.serverStatus === ServerComponent.OFF) ? ServerComponent.ON : ServerComponent.OFF
   }
 
-  getBkColor = () : string => this.serverStatus === ServerComponent.OFF ? 'red' : 'blue'
+  isOnline = () : boolean => this.serverStatus === ServerComponent.ON
+  getBkColor = () : string => this.isOnline() ? 'blue' : 'red'
 
 }

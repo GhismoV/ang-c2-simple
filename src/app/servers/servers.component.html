@@ -18,13 +18,19 @@
   [disabled]="!this.allowAddServer || this.newServerName === ''"
   (click)="onAddServer()"
 >Add Server <b>{{newServerName}}</b></button>
+<p *ngIf="this.err !== ''">{{this.err}}</p>
 
 <h3>{{allowAddServer}}</h3>
 <h3 [innerText]="allowAddServer">{{ 'banana' }}</h3>
+<h3>{{err}}</h3>
 
-<!-- chiamata via class -->
-<div class="app-server"></div>
-<div class="app-server"></div>
+<!-- chiamata via class
+<div class="app-server" [serverName]="'sta ceppa'"></div>
+<div class="app-server" serverName="sta minchia"></div>
+-->
+<!-- uso il for sempre con chiamata via class -->
+<div *ngFor="let nomeServer of this.servers; let i = index" class="app-server" [serverName]="nomeServer" [serverIdx]=i></div>
+
 
 <!-- chiamata via attributo
 <div app-server></div>

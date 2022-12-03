@@ -12,3 +12,11 @@ h4 {
   background-color: mistyrose;
   border: 1px solid red;
 }
+
+.online {
+  color: white;
+}
+
+.offline {
+  color: black;
+}

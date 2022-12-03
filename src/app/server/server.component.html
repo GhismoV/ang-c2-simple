@@ -2,5 +2,8 @@
 <p *ngIf="this.serverStatus === 'online'">Server {{this.serverId}} is {{this.serverStatus}}</p>
 <h4 *ngIf="this.serverStatus === 'offline'">Server {{this.serverId}} is {{this.serverStatus}}</h4>
 -->
-<h3 [ngStyle]="{backgroundColor: this.getBkColor()}">Server {{this.serverId}} is {{this.serverStatus}}</h3>
+<h3
+  [ngStyle]="{backgroundColor: this.getBkColor()}"
+  [ngClass]="{online: isOnline(), offline: !isOnline()}"
+>{{this.serverIdx + 1 | number: '3.0'}}. Server {{this.serverName}} with ID {{this.serverId}} is {{this.serverStatus}}</h3>
 <button class="btn btn-primary" (click)="this.changeStatus()">Cambia stato</button>
